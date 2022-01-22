@@ -1,0 +1,422 @@
+Parte I - Comandos de Input e Output
+
+Navegue até a pasta unix_tests ;
+Crie um arquivo texto pelo terminal com o nome skills2.txt e adicione os valores Internet , Unix e Bash , um em cada linha.
+Adicione mais 5 itens à sua lista de skills e depois imprima a lista ordenada no terminal. 🤓
+Conte quantas linhas tem o arquivo skills2.txt .
+Crie um arquivo chamado top_skills.txt usando o skills2.txt , contendo as 3 primeiras skills em ordem alfabética.
+Crie um novo arquivo chamado phrases2.txt pelo terminal e adicione algumas frases de sua escolha.
+Conte o número de linhas que contêm as letras br .
+Conte o número de linhas que não contêm as letras br .
+Adicione dois nomes de países ao final do arquivo phrases2.txt .
+Crie um novo arquivo chamado bunch_of_things.txt com os conteúdos dos arquivos phrases2.txt e countries.txt
+Ordene o arquivo bunch_of_things.txt .
+
+
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2$ mkdir unix_tests1-4
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2$ cd unix_tests1-4/
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/dia4-unix-e-bash-pt2/unix_tests1-4$ touch skills2.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ cat > skills2.txt 
+Internet
+Unix
+Bash
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ cat >> skills2.txt 
+JavaScript
+HTML
+CSS
+React
+Git
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ wc -l skills2.txt 
+8 skills2.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ sort < skills2.txt 
+Bash
+CSS
+Git
+HTML
+Internet
+JavaScript
+React
+Unix
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ sort < skills2.txt | head -3 > topskills.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ cat topskills.txt 
+Bash
+CSS
+Git
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ touch phrases2.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ cat > phrases2.txt
+"A vinganças nunca é plena, mata a alma e envenena." Seu Madruga
+"É preciso que eu suporte duas ou três lagartas se eu quiser conhecer as borboletas... Antoine de Sai^Z                                                            
+[1]+  Parado                  cat > phrases2.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ fg %1
+cat > phrases2.txt
+"A vingança nunca é plena, mata a alma e envenena." Seu Madruga
+"É preciso que eu suporte duas ou três lagartas se eu quiser conhecer as borboletas." Saint-Exupéry
+"Aprendi com as primaveras a deixar-me cortar e a voltar sempre inteira." Cecília Meireles
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ wc -l 'br'
+wc: br: Arquivo ou diretório inexistente
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ wc -l phrases2.txt 'br'
+  4 phrases2.txt
+wc: br: Arquivo ou diretório inexistente
+  4 total
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ wc -l phrases2.txt "br"
+  4 phrases2.txt
+wc: br: Arquivo ou diretório inexistente
+  4 total
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ wc -l phrases2.txt
+4 phrases2.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ cat phrases2.txt 
+"A vinganças nunca é plena, mata a alma e envenena." Seu Madruga
+"A vingança nunca é plena, mata a alma e envenena." Seu Madruga
+"É preciso que eu suporte duas ou três lagartas se eu quiser conhecer as borboletas." Saint-Exupéry
+"Aprendi com as primaveras a deixar-me cortar e a voltar sempre inteira." Cecília Meireles
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ man wc
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ man find
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ grep -i br phrases2.txt | wc -l
+0
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ grep -iv br phrases2.txt | wc -l
+4
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ cat >> phrases2.txt 
+Brasil
+Rússia
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ curl -o countries.txt "https://gist.githubusercontent.com/kalinchernev/486393efcca01623b18d/raw/daa24c9fea66afb7d68f8d69f0c4b8eeb9406e83/countries"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1842  100  1842    0     0   4991      0 --:--:-- --:--:-- --:--:--  4978
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ cat phrases2.txt countries.txt > bunch_of_things.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ sort bunch_of_things.txt
+Afghanistan
+Albania
+Algeria
+Andorra
+Angola
+Antigua & Deps
+"Aprendi com as primaveras a deixar-me cortar e a voltar sempre inteira." Cecília Meireles
+Argentina
+Armenia
+Australia
+Austria
+"A vingança nunca é plena, mata a alma e envenena." Seu Madruga
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgium
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia Herzegovina
+Botswana
+Brasil
+Brazil
+Brunei
+Bulgaria
+Burkina
+Burundi
+Cambodia
+Cameroon
+Canada
+Cape Verde
+Central African Rep
+Chad
+Chile
+China
+Colombia
+Comoros
+Congo
+Congo {Democratic Rep}
+Costa Rica
+Croatia
+Cuba
+Cyprus
+Czech Republic
+Denmark
+Djibouti
+Dominica
+Dominican Republic
+East Timor
+Ecuador
+Egypt
+El Salvador
+"É preciso que eu suporte duas ou três lagartas se eu quiser conhecer as borboletas." Saint-Exupéry
+Equatorial Guinea
+Eritrea
+Estonia
+Ethiopia
+Fiji
+Finland
+France
+Gabon
+Gambia
+Georgia
+Germany
+Ghana
+Greece
+Grenada
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hungary
+Iceland
+India
+Indonesia
+Iran
+Iraq
+Ireland {Republic}
+Israel
+Italy
+Ivory Coast
+Jamaica
+Japan
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Korea North
+Korea South
+Kosovo
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Luxembourg
+Macedonia
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Marshall Islands
+Mauritania
+Mauritius
+Mexico
+Micronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Morocco
+Mozambique
+Myanmar, {Burma}
+Namibia
+Nauru
+Nepal
+Netherlands
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Norway
+Oman
+Pakistan
+Palau
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Poland
+Portugal
+Qatar
+Romania
+Rússia
+Russian Federation
+Rwanda
+Saint Vincent & the Grenadines
+Samoa
+San Marino
+Sao Tome & Principe
+Saudi Arabia
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Solomon Islands
+Somalia
+South Africa
+South Sudan
+Spain
+Sri Lanka
+St Kitts & Nevis
+St Lucia
+Sudan
+Suriname
+Swaziland
+Sweden
+Switzerland
+Syria
+Taiwan
+Tajikistan
+Tanzania
+Thailand
+Togo
+Tonga
+Trinidad & Tobago
+Tunisia
+Turkey
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+United Arab Emirates
+United Kingdom
+United States
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican City
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ 
+
+
+
+
+
+Parte II - Permissões
+
+Navegue até a pasta unix_tests ;
+Rode o comando ls -l e veja quais as permissões dos arquivos;
+Mude a permissão do arquivo bunch_of_things.txt para que todos os usuários possam ter acesso à leitura e escrita, e verifique se está correto com o comando ls -l ;
+Resultado esperado: -rw-rw-rw- 1 ana ana 1860 ago 13 11:39 bunch_of_things.txt
+Tire a permissão de escrita do arquivo bunch_of_things.txt para todos os usuários, verifique se está correto com o comando ls -l ;
+Resultado esperado: -r--r--r-- 1 ana ana 1860 ago 13 11:39 bunch_of_things.txt
+Volte à permissão do arquivo bunch_of_things.txt para a listada inicialmente utilizando o comando chmod 644 bunch_of_things.txt .
+Resultado esperado: -rw-r--r-- 1 ana ana 1860 ago 13 11:39 bunch_of_things.txt
+
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/dia4-unix-e-bash-pt2$ cd unix_tests1-4/
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ ls -l
+total 24
+-rw-rw-r-- 1 bsmarina bsmarina 2119 out 21 18:39 'bunch_of_things (cópia).txt'
+-rw-rw-r-- 1 bsmarina bsmarina 2119 out 21 18:39  bunch_of_things.txt
+-rw-rw-r-- 1 bsmarina bsmarina 1842 out 21 18:35  countries.txt
+-rw-rw-r-- 1 bsmarina bsmarina  343 out 21 18:34  phrases2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   49 out 21 18:11  skills2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   13 out 21 18:13  topskills.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ chmod a+w bunch_of_things.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ ls -l
+total 24
+-rw-rw-r-- 1 bsmarina bsmarina 2119 out 21 18:39 'bunch_of_things (cópia).txt'
+-rw-rw-rw- 1 bsmarina bsmarina 2119 out 21 18:39  bunch_of_things.txt
+-rw-rw-r-- 1 bsmarina bsmarina 1842 out 21 18:35  countries.txt
+-rw-rw-r-- 1 bsmarina bsmarina  343 out 21 18:34  phrases2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   49 out 21 18:11  skills2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   13 out 21 18:13  topskills.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ chmod a-w bunch_of_things.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ ls -l
+total 24
+-rw-rw-r-- 1 bsmarina bsmarina 2119 out 21 18:39 'bunch_of_things (cópia).txt'
+-r--r--r-- 1 bsmarina bsmarina 2119 out 21 18:39  bunch_of_things.txt
+-rw-rw-r-- 1 bsmarina bsmarina 1842 out 21 18:35  countries.txt
+-rw-rw-r-- 1 bsmarina bsmarina  343 out 21 18:34  phrases2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   49 out 21 18:11  skills2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   13 out 21 18:13  topskills.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ chmod 644 bunch_of_things.txt
+bsmarina@bsmarina-desktop:~/Documentos/trybe-exercicios/fundamentos/unix-e-shell/dia4-unix-e-bash-pt2/unix_tests1-4$ ls -l
+total 24
+-rw-rw-r-- 1 bsmarina bsmarina 2119 out 21 18:39 'bunch_of_things (cópia).txt'
+-rw-r--r-- 1 bsmarina bsmarina 2119 out 21 18:39  bunch_of_things.txt
+-rw-rw-r-- 1 bsmarina bsmarina 1842 out 21 18:35  countries.txt
+-rw-rw-r-- 1 bsmarina bsmarina  343 out 21 18:34  phrases2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   49 out 21 18:11  skills2.txt
+-rw-rw-r-- 1 bsmarina bsmarina   13 out 21 18:13  topskills.txt
+
+
+
+
+
+Parte III - Processos & Jobs
+Liste todos os processos;
+Agora use o comando sleep 30 & ;
+Use a listagem de processos para encontrar o PID do processo que está executando o comando sleep 30 e termine a sua execução (mate o processo) ;
+Execute novamente o comando sleep 30 , mas agora sem o & . Depois, faça com que ele continue executando em background;
+Crie um processo em background que rode o comando sleep por 300 segundos.
+Crie mais dois processos que rodem o comando sleep por 200 e 100 segundos, respectivamente.
+Você deve criá-los em foreground (sem usar o & ) e suspendê-los (apertando ctrl+z ) após cada um começar a executar.
+Verifique que apenas o processo sleep 300 está em execução com o comando jobs . Suspenda a execução desse processo.
+Você vai precisar trazer o processo para foreground ( fg ) e suspendê-lo ( ctrl+z ), ou enviar um sinal.
+Retome a execução do processo sleep 100 em background com o comando bg .
+Termine a execução de todos os processos sleep (mate os processos) .
+
+bsmarina@bsmarina-desktop:~$ ps
+    PID TTY          TIME CMD
+ 124176 pts/1    00:00:00 bash
+ 124377 pts/1    00:00:00 ps
+bsmarina@bsmarina-desktop:~$ sleep 30 &
+[1] 124381
+bsmarina@bsmarina-desktop:~$ ps
+    PID TTY          TIME CMD
+ 124176 pts/1    00:00:00 bash
+ 124381 pts/1    00:00:00 sleep
+ 124387 pts/1    00:00:00 ps
+bsmarina@bsmarina-desktop:~$ kill 12381
+bash: kill: (12381) - Processo inexistente
+[1]+  Concluído              sleep 30
+bsmarina@bsmarina-desktop:~$ sleep 100 &
+[1] 124465
+bsmarina@bsmarina-desktop:~$ ^C
+bsmarina@bsmarina-desktop:~$ ps
+    PID TTY          TIME CMD
+ 124176 pts/1    00:00:00 bash
+ 124465 pts/1    00:00:00 sleep
+ 124469 pts/1    00:00:00 ps
+bsmarina@bsmarina-desktop:~$ jobs
+[1]+  Executando              sleep 100 &
+bsmarina@bsmarina-desktop:~$ kill 124465
+bsmarina@bsmarina-desktop:~$ ps
+    PID TTY          TIME CMD
+ 124176 pts/1    00:00:00 bash
+ 124473 pts/1    00:00:00 ps
+[1]+  Terminado               sleep 100
+bsmarina@bsmarina-desktop:~$ sleep 300 &
+[1] 124492
+bsmarina@bsmarina-desktop:~$ sleep 200
+^Z
+[2]+  Parado                  sleep 200
+bsmarina@bsmarina-desktop:~$ bg
+[2]+ sleep 200 &
+bsmarina@bsmarina-desktop:~$ sleep 101
+^Z
+[3]+  Parado                  sleep 101
+bsmarina@bsmarina-desktop:~$ bg
+[3]+ sleep 101 &
+bsmarina@bsmarina-desktop:~$ jobs
+[1]   Executando              sleep 300 &
+[2]-  Executando              sleep 200 &
+[3]+  Executando              sleep 101 &
+bsmarina@bsmarina-desktop:~$ fg %3
+sleep 101
+^Z
+[3]+  Parado                  sleep 101
+bsmarina@bsmarina-desktop:~$ bg
+[3]+ sleep 101 &
+bsmarina@bsmarina-desktop:~$ jobs
+[1]   Executando              sleep 300 &
+[2]-  Executando              sleep 200 &
+[3]+  Executando              sleep 101 &
+bsmarina@bsmarina-desktop:~$ kill %1
+bsmarina@bsmarina-desktop:~$ kill %2
+[1]   Terminado               sleep 300
+bsmarina@bsmarina-desktop:~$ kill %3
+[2]-  Terminado               sleep 200
+bsmarina@bsmarina-desktop:~$ jobs
+[3]+  Terminado               sleep 101
+
