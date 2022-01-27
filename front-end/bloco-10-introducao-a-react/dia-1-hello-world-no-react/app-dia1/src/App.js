@@ -1,6 +1,7 @@
 import './App.css';
 
 function App() {
+  const compromissos = ["estudar", "malhar", "varrer a casa"];
   const Task = (value) => {
     return (
       <li>{value}</li>
@@ -8,7 +9,7 @@ function App() {
   }
   return (
     <div className="App">
-      {Task('Estudar')}
+      {compromissos.map((compromisso) => Task(compromisso))}
     </div>
   );
 }
